@@ -7,7 +7,7 @@
         'Framework' = 'netcoreapp3.1'
     },
     [PSCustomObject]@{
-        'Name' = 'Amazon.CDK.Asset.KubectlV20'
+        'Name' = 'Amazon.CDK.Asset.AwsCliV1'
         'Version' = '2.2.30'
         'Framework' = 'netcoreapp3.1'
     },
@@ -18,7 +18,7 @@
     },
     [PSCustomObject]@{
         'Name' = 'Amazon.CDK.Asset.NodeProxyAgentV5'
-        'Version' = '2.1.1'
+        'Version' = '2.0.38'
         'Framework' = 'netcoreapp3.1'
     },
     [PSCustomObject]@{
