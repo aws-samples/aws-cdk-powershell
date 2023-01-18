@@ -3,12 +3,12 @@
     [PSCustomObject]@{
         # https://www.nuget.org/packages/Amazon.CDK.Lib
         'Name' = 'Amazon.CDK.Lib'
-        'Version' = '2.55.1'
+        'Version' = '2.60.0'
         'Framework' = 'netcoreapp3.1'
     },
     [PSCustomObject]@{
         'Name' = 'Amazon.CDK.Asset.AwsCliV1'
-        'Version' = '2.2.30'
+        'Version' = '2.2.49'
         'Framework' = 'netcoreapp3.1'
     },
     [PSCustomObject]@{
