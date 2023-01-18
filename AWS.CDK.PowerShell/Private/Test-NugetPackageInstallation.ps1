@@ -26,7 +26,12 @@ function Test-NugetPackageInstallation {
     }
     
     process {
-        $packageVerfied = Invoke-NugetVerify -PackagePath $PackagePath
+        try {
+            $packageVerfied = Invoke-NugetVerify -PackagePath $PackagePath
+        } catch {
+            Write-Log "Nuget verify failed. Ensure nuget CLI is installed." -LogLevel ERROR
+            throw
+        }
         $packageVerfiedLastMessage = $packageVerfied[-1].ToString()
         $expectedString = ("Successfully verified package '{0}.{1}'." -f $PackageName, $PackageVersion)
         # last line of nuget verify command returns the expected message

@@ -66,7 +66,7 @@ function Install-CdkPackage {
         # Validate the package installation
         $packageInstallationPath = ((Join-Path -Path $packagesDir -ChildPath ("{0}.{1}" -f $PackageName, $PackageVersion)))
         if ($IsWindows) {
-            $packageVerified = Test-NugetPackageInstallation -PackagePath $packageInstallationPath -PackageName $PackageName -PackageVersion $PackageVersion
+            $packageVerified = Test-NugetPackageInstallation -PackagePath $packageInstallationPath -PackageName $PackageName -PackageVersion $PackageVersion -ErrorAction Stop
             if ($packageVerified.Verified -eq $true) {
                 Write-Log ("Successfully installed the CDK package {0} under {1}" -f $PackageName, $packagesDir)
                 $output.Installed = $true 

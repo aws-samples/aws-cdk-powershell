@@ -19,6 +19,7 @@ function Invoke-NugetVerify {
     }
     
     process {
+        $output = ""
         # https://learn.microsoft.com/en-us/nuget/reference/cli-reference/cli-ref-verify
         # Run a nuget cli command to verify
         if (($IsLinux) -or ($IsMacOS)){
@@ -28,8 +29,15 @@ function Invoke-NugetVerify {
             Write-Log "nuget package verification is not supported on this platform" -LogLevel WARN
         } else {
             $nugetCommand = ("& nuget verify -Signatures {0}\*.nupkg" -f $PackagePath)
+            # Invoke the nuget verify command to check the nuget signature
+            try {
+                $output = Invoke-Expression -Command $nugetCommand
+            } catch [System.Management.Automation.CommandNotFoundException] {
+                Write-Log "nuget command is not found. Install nuget CLI and add the path to `$env:PATH" -LogLevel ERROR
+                Write-Log "nuget CLI installation reference: https://learn.microsoft.com/en-us/nuget/reference/nuget-exe-cli-reference" -LogLevel WARN
+                throw
+            }
         }
-        $output = Invoke-Expression -Command $nugetCommand
         return $output
     }
     end {
