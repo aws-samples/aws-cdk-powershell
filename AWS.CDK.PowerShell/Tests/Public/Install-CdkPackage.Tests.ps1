@@ -16,7 +16,10 @@ Describe 'Install-CdkPackage' {
     It 'Successfully installs a package' {
         InModuleScope 'AWS.CDK.PowerShell' -Parameters $_ {
             Mock Test-NugetPackageProvider { return @{ Registered = $true } }
-            Mock Test-NugetPackageSource { return @{ Registered = $true } }
+            Mock Test-NugetPackageSource { return @{ 
+                Registered = $true 
+                PackageSourceName = "NuGetRepository" 
+            } }
             Mock Test-NugetPackageInstallation { return @{ Verified = $true } }
             $successfulOutput = Install-CdkPackage -CdkDirectory $testDrive -PackageName $packages[0].Name -PackageVersion $packages[0].Version
             $successfulOutput.Installed | Should -Be $true
