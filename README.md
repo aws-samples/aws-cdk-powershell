@@ -12,7 +12,7 @@ Writing AWS CDK in PowerShell allows PowerShell users to leverage their existing
 
 - [AWS CDK Toolkit](https://docs.aws.amazon.com/cdk/v2/guide/cli.html)
 - PowerShell 7.0 or later
-- .NET Core v3.1 or later
+- .NET 8.0 or later
 - [Nuget cli](https://learn.microsoft.com/en-us/nuget/reference/nuget-exe-cli-reference)
 - AWS credentials
 - Internet connectivity to the Nuget package source

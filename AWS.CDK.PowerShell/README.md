@@ -5,7 +5,7 @@ AWS.CDK.PowerShell module simplifies [AWS Cloud Development Kit (AWS CDK)](https
 ## Prerequisites
 
 - PowerShell 7.0 or later
-- .NET Core v3.1 or later
+- .NET 8.0 or later
 - [Nuget cli](https://learn.microsoft.com/en-us/nuget/reference/nuget-exe-cli-reference)
 - Pester 5.0.0 or later (for unit tests)
 
