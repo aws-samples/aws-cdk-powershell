@@ -15,3 +15,7 @@
 - enhancement: Updated AWS.CDK.Lib version to 2.130.0
 - enhancement: Updated AWS.CDK.Lib dependencies
 - notice: Prequisite changed - .NET Core v3.1 or later to .NET 8.0 or later
+
+## 1.1.1
+
+- enhancement: Added a Dockerfile to test AWS.CDK.PowerShell in a Docker container

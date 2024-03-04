@@ -16,6 +16,7 @@ Writing AWS CDK in PowerShell allows PowerShell users to leverage their existing
 - [Nuget cli](https://learn.microsoft.com/en-us/nuget/reference/nuget-exe-cli-reference)
 - AWS credentials
 - Internet connectivity to the Nuget package source
+- (Optional) [Docker](https://www.docker.com/get-started/)
 
 ## How to Use
 
@@ -33,6 +34,27 @@ The previous steps create a CDK directory. Under the root of the package, there 
 - `cdk synth`
 - `cdk bootstrap` # Optional if you have not deployed a CDK app before
 - `cdk deploy`  
+
+### (Optional) Use a Docker container
+
+If you would like to use a Docker container for AWS.CDK.PowerShell, you can follow the steps below:
+
+1. Build an image
+
+- `cd <root of this repository>`
+- `docker build -t IMAGE_NAME .`
+
+2. Interact with a docker container locally to use the AWS.CDK.PowerShell module
+
+- `docker run -e AWS_ACCESS_KEY_ID='YOUR_ACCESS_KEY' -e AWS_SECRET_ACCESS_KEY='YOUR_SECRET_ACCESS_KEY' -e AWS_DEFAULT_REGION='YOUR_REGION' --entrypoint /usr/bin/pwsh -it IMAGE_NAME`
+
+3. Create a new package
+
+- `New-CdkPackage -Path <PATH> -Template <TEMPLATE_NAME>`
+
+4. Deploy the package
+
+- `cdk deploy`
 
 ## Advanced
 
